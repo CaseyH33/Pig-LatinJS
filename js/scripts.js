@@ -9,12 +9,10 @@ var pigLatin = function(string) {
 
 var pigLatinWord = function(word) {
   for(var i=0; i<word.length; i++) {
+    word = quChecker(word);
     var currentLetter = word.charAt(0);
-    if (vowelCheck(currentLetter)) {
+    if (vowelChecker(currentLetter)) {
       break;
-    } else if (currentLetter.toLowerCase() === "q" && word.charAt(1).toLowerCase() === "u") {
-      word = word.slice(2, word.length);
-      word += "qu";
     } else {
       word = word.slice(1, word.length);
       word += currentLetter;
@@ -27,6 +25,13 @@ var wordSeparator = function(string) {
   return string.split(" ");
 }
 
+var quChecker = function(string) {
+  if (string.charAt(0).toLowerCase() === "q" && string.charAt(1).toLowerCase() === "u") {
+    string = string.slice(2, string.length);
+    string += "qu";
+  }
+  return string;
+}
 
 var yChecker = function(string) {
   if(string.charAt(0).toLowerCase() === "y") {
@@ -35,6 +40,6 @@ var yChecker = function(string) {
   return string;
 }
 
-var vowelCheck = function(letter) {
+var vowelChecker = function(letter) {
   return ["a", "e", "i", "o", "u", "y"].indexOf(letter.toLowerCase()) !== -1;
 };
