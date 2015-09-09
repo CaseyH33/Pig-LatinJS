@@ -43,3 +43,16 @@ var yChecker = function(string) {
 var vowelChecker = function(letter) {
   return ["a", "e", "i", "o", "u", "y"].indexOf(letter.toLowerCase()) !== -1;
 };
+
+$(function() {
+  $("form#translator").submit(function(event) {
+    var string = $("input#string").val();
+    var result = pigLatin(string);
+    $(".output").empty();
+    $(".input_string").empty();
+    $(".input_string").text(string);
+    $(".output").text(result);
+    $("#result").show();
+    event.preventDefault();
+  });
+});
