@@ -1,11 +1,14 @@
 var pigLatin = function(string) {
-  var firstLetter = string.charAt(0);
-  if(vowelCheck(firstLetter)) {
-    return string + "ay";
-  } else {
-    var return_string = string.slice(1, string.length);
-    return return_string += (firstLetter + "ay");
+  for(var i=0; i<string.length; i++) {
+    var currentLetter = string.charAt(0);
+    if(vowelCheck(currentLetter)) {
+      break;
+    } else {
+      string = string.slice(1, string.length);
+      string += currentLetter;
+    }
   }
+  return string += "ay";
 };
 
 var vowelCheck = function(letter) {

@@ -6,4 +6,8 @@ describe('pigLatin', function() {
   it("adds ay to the end of a word after shifting the first consonant to the end of the word", function() {
     expect(pigLatin("football")).to.equal("ootballfay");
   });
+
+  it("adds ay to the end of a word after shifting multiple consonants to the end of the word", function() {
+    expect(pigLatin("string")).to.equal("ingstray");
+  });
 });
