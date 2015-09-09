@@ -10,8 +10,9 @@ var pigLatin = function(string) {
 var pigLatinWord = function(word) {
   for(var i=0; i<word.length; i++) {
     word = quChecker(word);
+    var vowel = /[aeiouy]/g;
     var currentLetter = word.charAt(0);
-    if (vowelChecker(currentLetter)) {
+    if (currentLetter.match(vowel)) {
       break;
     } else {
       word = word.slice(1, word.length);
@@ -39,10 +40,6 @@ var yChecker = function(string) {
   }
   return string;
 }
-
-var vowelChecker = function(letter) {
-  return ["a", "e", "i", "o", "u", "y"].indexOf(letter.toLowerCase()) !== -1;
-};
 
 $(function() {
   $("form#translator").submit(function(event) {
